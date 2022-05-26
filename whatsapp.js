@@ -277,6 +277,7 @@ const init = () => {
 
 export {
     isSessionExists,
+    isSessionFileExists,
     createSession,
     getSession,
     deleteSession,
