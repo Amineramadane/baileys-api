@@ -2,7 +2,14 @@ import { isSessionExists, createSession, getSession, deleteSession } from './../
 import response from './../response.js'
 
 const find = (req, res) => {
-    response(res, 200, true, 'Session found.')
+    const { id } = req.params
+    const session = getSession(id)
+    const sessionFile = (session.isLegacy ? 'legacy_' : 'md_') + id
+    if (isSessionExists(id) && isSessionFileExists(sessionFile)) {
+        return response(res, 200, true, 'Session found.')
+    }
+
+    response(res, 404, false, 'Session not found.')
 }
 
 const status = (req, res) => {
