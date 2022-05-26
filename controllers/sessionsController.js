@@ -1,4 +1,4 @@
-import { isSessionExists, createSession, getSession, deleteSession } from './../whatsapp.js'
+import { isSessionExists, isSessionFileExists, createSession, getSession, deleteSession } from './../whatsapp.js'
 import response from './../response.js'
 
 const find = (req, res) => {
